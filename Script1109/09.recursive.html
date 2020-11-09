@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>재귀호출</title>
+</head>
+
+<body>
+    <h2>재귀호출 : 함수안에서 자신을 다시 호출하는 것</h2>
+    <!-- 4 x 3 x 2 x 1 = 4!-->
+    <!-- factorial -->
+    <fieldset>
+        <legend>factorial 함수</legend>
+        <input type="text" id="factorial">
+        <input type="button" value="factorial!" onclick="oo()">
+        <h2>입력한 값 : <span id="out1"></span></h2>
+        <h2>결과 값 : <span id="out2"></span></h2></h2>
+        <img src="" id="img2">
+
+    </fieldset>
+</body>
+    <script>
+        var result = 1;
+        var ss = "";
+
+        function oo(){
+        var number = parseInt(document.getElementById("factorial").value);
+        document.getElementById("out1").innerHTML = number;
+        var ans = fact(number);
+        document.getElementById("out2").innerHTML = ss + ans;
+        img1();
+        }
+
+
+        // function fact(number){
+    
+        //     if(number==0){
+        //         return result;
+        //     }else {
+        //         result=result*number;
+        //         number--;
+        //     }
+        //     return fact(number);
+        // }
+
+        function fact(number){
+            if(number==1){
+                ss += number + " = ";
+                return 1
+            }
+            ss += number + " * ";
+            return number * fact(number-1)
+        }
+
+
+        function img1(){
+            document.getElementById("img2").src="cat.jpg";
+        }
+
+    </script>
+</html>

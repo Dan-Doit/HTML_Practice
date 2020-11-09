@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="season1">
+    <!-- onclick은 클릭했을경우 어떤 기능을 실행하라는 기능인데 이 구문에서는 input1의 기능을 실행하라는 뜻이다. -->
+    <input type="button" value="입력" onclick="input1()">
+</body>
+
+    <script>
+        function input1(){
+
+            var season = document.getElementById("season1").value;
+            console.log(season);
+
+            switch(season){
+                case "1":
+                document.write("봄");
+                break;
+
+                case "2":
+                document.write("여름");
+                break;
+
+                case "3":
+                document.write("가을");
+                break;
+
+                case "4":
+                document.write("겨울");
+                break;
+
+                default:
+                document.write("다시입력해주세요");
+                break
+            }
+        }
+    </script>
+</html>

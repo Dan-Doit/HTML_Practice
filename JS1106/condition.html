@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>조건식(Condition)</title>
+</head>
+<body>
+    <input type="text" id="season1">
+    <input type="button" value="입력" onclick="input1()">
+</body>
+<!-- script -->
+<script>
+    var mid =25;
+    var high = 50;
+    var low = 1;
+    var current = 13;
+    var found = -1;
+
+    // if문
+    if(current < mid) {
+        mid = (current-low)/2;
+    }
+
+    // else문
+    if(current < mid){
+        mid = (current-low)/2;
+    }else if(current>mid){
+        mid = (current+high)/2;
+    }else{
+        found = current;
+    }
+
+    console.log("mid : " + mid);
+    console.log("found :" + found);
+    console.log(mid);
+
+    // switch문
+    var season = 2;
+    console.log("season : " + season);
+
+    function input1(){
+        var season = document.getElementById("season1").value;
+        console.log("input season : " + season);
+
+        switch(season){
+            case "1":
+                document.write("봄");
+                break;
+            case "2":
+                document.write("여름");
+                break;
+            case "3":
+                document.write("가을");
+                break;
+            case "4":
+                document.write("겨울");
+                break;
+            default:
+                document.write("다시입력해 주세요");
+                break;
+        }
+    }
+</script> 
+</html>

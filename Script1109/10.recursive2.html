@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>재귀호출2의n승</title>
+</head>
+
+<body>
+    <h2>재귀호출 : 함수안에서 자신을 다시 호출하는 것</h2>
+    <!-- 4 x 3 x 2 x 1 = 4!-->
+    <!-- factorial -->
+    <fieldset>
+        <legend>2의 n승</legend>
+        <input type="text" id="pot" placeholder="0이상의 숫자를 입력하세요">
+        <input type="button" value="powerOftwo" onclick="pot()">
+        <h2>입력한값 : <span id="ans1"></span></h2>
+        <h2>결과값 : <span id="ans2"></span></h2>
+    </fieldset>
+</body>
+    <script>
+       function powerOftwo(num){
+           if(num==0){
+               return 1;
+           }
+           return 2 * powerOftwo(num-1);
+       }
+
+       function pot(){
+           //1. 입력값 받아오기
+            var num = parseInt(document.getElementById("pot").value);
+           //2.계산된 값 출력하기
+           document.getElementById("ans1").innerHTML=num;
+           document.getElementById("ans2").innerHTML=powerOftwo(num);
+       }
+    </script>
+</html>

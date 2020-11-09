@@ -1,0 +1,30 @@
+div{
+    line-height: 100%;
+    text-align: center;
+    border: 3px solid red;   
+    overflow: hidden;
+    margin: 10px;
+}
+
+.img1{
+    float: right;
+}
+
+#parents{
+    height: 1000px;
+    border: 3px double blue;
+}
+
+.child1{
+    border: 1px solid seagreen;
+    height: 500px;
+    background-color: tan;
+    float: left;
+}
+
+.child2{
+    border: 1px solid coral;
+    height: 500px;
+    background-color: slateblue;
+    margin-left: 10px;
+}

@@ -1,0 +1,18 @@
+div{
+    border: 3px solid blue;
+    text-align: center;
+    margin-top: 5px;
+    height: 30px;
+}
+
+.d1{
+    width: 300px;
+}
+
+.d2{
+    max-width: 300px;
+}
+
+.d3{
+    min-width: 300px;
+}

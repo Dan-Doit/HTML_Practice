@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>좋아하는 계절</legend>
+        <h3>[1] 봄 [2] 여름 [3] 가을 [4] 겨울</h3>
+        <input type="text" id="season">
+        <input type="button" value="입력" onclick="input1()">
+        <h1 id="ans"></h1>
+    </fieldset>
+</body>
+
+    <script>
+        function input1(){
+
+            var season = document.getElementById("season").value;
+
+            switch(season){
+                case "1":
+                // document.write("봄");
+                document.getElementById("ans").innerHTML = "봄입니다.";
+                break;
+
+                case "2":
+                // document.write("여름");
+                document.getElementById("ans").innerHTML = "여름입니다.";
+                break;
+
+                case "3":
+                // document.write("가을");
+                document.getElementById("ans").innerHTML = "가을입니다.";
+                break;
+
+                case "4":
+                // document.write("겨울");
+                document.getElementById("ans").innerHTML = "겨울입니다.";
+                break;
+
+                default:
+                // document.write("다시입력해주세요");
+                document.getElementById("ans").innerHTML = "다시입력해주세요.";
+                break
+            }
+        }
+    </script>
+</html>

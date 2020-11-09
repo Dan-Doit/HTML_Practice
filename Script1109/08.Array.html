@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>성적계산</legend>
+        국어점수입력 : <input type="text" id="int1"><br>
+        영어점수입력 : <input type="text" id="int2"><br>
+        수학점수입력 : <input type="text" id="int3"><br>
+        사회점수입력 : <input type="text" id="int4"><br>
+        과학점수입력 : <input type="text" id="int5"><br>
+        <input type="button" value="입력" onclick="input()"><br>
+        <input type="button" value="출력" onclick="output()"><br>
+        <input type="button" value="총점" onclick="sum()"><br>
+
+        <h3>총점은 : <span id="ans"></span></h3>
+
+    </fieldset>
+</body>
+    <script>
+        // 배열선언
+        var arr = [];
+
+        function input(){
+            var input = [];
+            input[0] = document.getElementById("int1");
+            input[1] = document.getElementById("int2");
+            input[2] = document.getElementById("int3");
+            input[3] = document.getElementById("int4");
+            input[4] = document.getElementById("int5");
+
+            for (var i =0; i<5; i++){
+                arr[i] = parseInt(input[i].value);
+                input[i].value = "";
+            }
+            input[0].focus();
+        }
+
+        function sum(){
+            var result = 0;
+            for(var i=0; i < arr.length; i++){
+                result += arr[i];
+
+            }
+            document.getElementById("ans").innerHTML=result+"점 입니다.";
+        }
+
+        function output(){
+            var result = "";
+
+            for(var i in arr){
+                result += arr[i] + "점 ";
+            }
+            document.getElementById("ans").innerHTML=result;
+        }
+
+    </script>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>영화정보</title>
+    <style>
+        table,
+        tr,
+        td,
+        th {
+            border: 1px solid;
+            text-align: center;
+            /* 한줄 붕괴시키기 */
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+<!-- head -->
+        <thead>
+            <tr>
+                <th rowspan="2">구분</th>
+                <th colspan="4">영화정보</th>
+            </tr>
+    
+            <tr>
+                <th>영화 제목</th>
+                <th>세부 정보</th>
+                <th>등급</th>
+                <th>상영 시간</th>
+            </tr>
+        </thead>
+<!-- foot -->
+        <tfoot>
+            <tr>
+                <th>출처</th>
+                <td colspan="4"><a href="https://movie.naver.com/" type="_blank">네이버 영화정보</a></td>
+            </tr>
+        </tfoot>
+
+        <caption>
+                현재 상영중인 영화정보
+        </caption>
+
+
+<!-- body -->
+        <!-- 세부 내용 -->
+    <tbody>
+        <tr>
+            <td rowspan="3"><img src="tesla.jpg" width="200px" alt="테슬라 시진입니다."></td>
+            <td rowspan="3">테슬라</td>
+            <td>드라마</td>
+            <td rowspan="3">12세 관람가</td>
+            <td rowspan="3">102분</td>
+        </tr>
+        <tr>
+
+            <td>미국</td>
+
+        </tr>
+        <tr>
+            <td>2020.10.28.개봉</td>
+        </tr>
+        <!-- 세부내용 종료 -->
+
+        <!-- 세부 내용 -->
+
+        <tr>
+            <td rowspan="3"><img src="whiplash.jpg" width="200px" alt="위플래쉬 사진입니다."></td>
+            <td rowspan="3">위플래쉬</td>
+            <td>드라마</td>
+            <td rowspan="3">전체 관람가</td>
+            <td rowspan="3">106분</td>
+        </tr>
+        <tr>
+
+            <td>미국</td>
+
+        </tr>
+        <tr>
+            <td>2020.10.28.재개봉</td>
+        </tr>
+        <!-- 세부내용 종료 -->
+
+    </tbody>
+    </table>
+</body>
+
+</html>
