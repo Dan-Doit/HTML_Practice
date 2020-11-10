@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>배열 함수들</title>
+    <style>
+        button{
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <hr/>
+    <button onclick="joinEX()">Join</button>
+    <button onclick="DelEX()">Del</button>
+    <button onclick="spliceDel()">spliceDel</button>
+    <button onclick="spliceAdd()">spliceAdd</button>
+    <button onclick="split()">split</button>
+</body>
+
+<script>
+    function joinEX(){
+        var arrJoin = ["A","B","C","D","E"];
+        var arrJoin1 = arrJoin.join("@@"); // 배열 안에 값들 사이에만 @@가 결합됨.
+        console.log(arrJoin1)
+
+    }
+    var array = ["라","다","가","마","나","바"];
+    console.log(array);
+
+    function DelEX(){
+        delete array[2]; // 방은 그대로 남아있고 데이터만 없앰.
+        console.log(array);
+    }
+    function spliceDel(){
+        //ArrName.splice(i, n);
+        //i번 인덱스부터 n개 삭제
+        array.splice(2,2);
+        console.log(array)
+    }
+    function spliceAdd(){
+        // ArrName.splice(i, n, "m1", "m2");
+        // i번 인덱스부터 n개 삭제하고 m개 대체  - 무조건 삭제 안해도됨
+        array.splice(1,3,"하","지","마");
+        array.splice(1,0,"지","각");
+        console.log(array)
+    }
+
+    var text = "비도 오고 그래서 니 생각이 났어"
+    function split(){
+        var words = []
+        // 공백을 기준으로 질라서 배열에 담는다.
+        words = text.split(" ");
+
+        for(var i in words){
+            console.log(words[i])
+        }
+
+    }
+</script>
+
+</html>

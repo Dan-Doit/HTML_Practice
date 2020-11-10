@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Document</title>
+</head>
+<body>
+    <h2>Person Object</h2>
+    <h3 id="person1"></h3>
+
+    <hr>
+    <h2>car Object</h2>
+    <h3 id="car"></h3>
+</body>
+
+<script>
+    // 오브젝트를 부를때는 이런식으로 부른다.
+    var object1 = {};
+    // 오브젝트를 부를때는 이런식으로 부를수도있다.
+    var object2 = new Object();
+
+    var person = {
+        name : "조단",
+        add : "서울 강남구",
+        email : "spqjeks@naver.com"
+    };
+
+    console.log(person);
+    document.getElementById("person1").innerHTML = person.name+","+person.add+","+person.email;
+
+    var car = new Object();
+    car["name"] = "Phantom";
+    car["company"] = "Rolls-Royce";
+    car["type"] = "Garsolen";
+    car["color"] = "black";
+
+    /* 위에서 정의는 이름으로 해줬지만 사실은 배열에 담겨있는 느낌이다.
+       해시와 비슷한거같다. 파이썬에서는 딕셔너리
+    */
+    var text = "";
+    for(var i in car){
+        text += i+" : " + car[i]+"<br>";
+    }
+    document.getElementById("car").innerHTML = text;
+</script>
+</html>
