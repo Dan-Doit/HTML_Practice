@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Event</title>
+    <style>
+        div{
+            margin: auto;
+            width: 500px;
+            height: 500px;
+            background-color: rosybrown;
+            text-align: center;
+            line-height: 500px;
+            font-size: 50px;
+            font-weight: bold;
+            margin-bottom: 50px;
+        }
+        legend{
+            font-size: 20px;
+        }
+        fieldset{
+            text-align: center;
+            border: none;
+        }
+
+    </style>
+</head>
+<!-- body -->
+<body onload="alert('로딩완료')">
+    <div id="mouse" onmouseover="MouseEvent('over')" onmouseout="MouseEvent('out')"></div>
+    <!-- fieldset 안에 onclick을 사용하여 -->
+    <!-- 오늘 날짜와 시간을 출력하는 함수를 만들어보자! -->
+    <fieldset>
+        <legend>현재시간을 알려드려요!</legend>
+        <button onclick="time()">Time!</button>
+        <h3 id="time"></h3>
+    </fieldset>
+</body>
+
+<!-- script -->
+<script>
+    function MouseEvent(evt){
+        if(evt=="over"){
+            // over일때 event 발생
+            // "mouse over" 출력
+            document.getElementById("mouse").innerHTML = "mouse over";
+            // document : 문서내에
+            // getElementById("mouse") : id의 속성값이 "mouse"인 친구를 찾고
+            // .innerHTML : HTML형식으로 출력해라 
+        }
+        if(evt=="out"){
+            // out일때 이벤트 발생
+            // "mouse over" 출력
+            document.getElementById("mouse").innerHTML = "mouse out";
+        }
+    }
+
+    function time(){
+        now =  new Date();
+        document.getElementById("time").innerHTML=now;
+
+    }
+</script>
+</html>

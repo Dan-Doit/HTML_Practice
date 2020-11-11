@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mouse Position</title>
+    <style>
+        div{
+            width: 250px;
+            height: 250px;
+            line-height: 250px;
+            text-align: center;
+        }
+    </style>
+ 
+</head>
+<!-- body -->
+<body>
+    <div id="eventzone">
+
+    </div>
+    <h2>mouse position: <span id="pos1"></span></h2>
+    <h2>mouse position: <span id="pos2"></span></h2>
+</body>
+
+<!-- script -->
+<script>
+    var mousezone = document.getElementById("eventzone");
+    mousezone.addEventListener("click",click);
+    mousezone.addEventListener("dblclick",dblclick);
+    // mouseover => mouseenter
+    // mouseout => mouseout
+    mousezone.addEventListener("mouseenter",mouseenter);
+    mousezone.addEventListener("mouseout",mouseout);
+    // mousecontext => 오른쪽 마우스클릭
+
+    mousezone.addEventListener("contextmenu",context);
+
+    function click(){
+        mousezone.innerHTML = "click!!";
+        mousezone.style.backgroundColor = "orange";
+    }
+
+    function dblclick(){
+        mousezone.innerHTML = "double click!!"
+        mousezone.style.backgroundColor = "lightblue"
+    }
+
+    function mouseenter(){
+        mousezone.innerHTML = "mouse in!!"
+        mousezone.style.backgroundColor = "tomato"
+    }
+
+
+    function mouseout(){
+        mousezone.innerHTML = "mouse out!!"
+        mousezone.style.backgroundColor = "lightgreen"
+    }
+
+    function context(){
+        alert("우클릭 금지");
+    }
+
+    document.addEventListener("mousemove",mMove);
+    function mMove(){
+        // window 에 있는 event라는 마우스의 좌표를 이동시켜준다.
+        var move = window.event;
+        console.log(move);
+        document.getElementById("pos1").innerHTML = "브라우저(Client) X :" +move.clientX
+        + "/ Y :" +move.clientY;
+
+        document.getElementById("pos2").innerHTML = "브라우저(Screen) X :" +move.screenX
+        + "/ Y :" +move.screenY;
+    }
+
+</script>
+</html>
