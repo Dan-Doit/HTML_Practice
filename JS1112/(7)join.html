@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>회원가입</title>
+</head>
+
+<body>
+    <h2>회원가입</h2>
+    <form action="http://www.naver.com" method="POST"> <!-- POST 주소창에 뜨는 정보들을
+                                                                 숨겨서 가는 기능 -->
+        아이디 : <input type="text" placeholder="아이디를 입력하세요." name="userId"><br />
+        패스워드 : <input type="password" name="userPw" id="userPw"><br />
+        패스워드 확인: <input type="password" id="checkPw" name="checkPw" onkeyup="check1()"><br />
+        <h3 id="msg"></h3>
+        이름 : <input type="text" placeholder="이름을 입력하세요." name="userName"><br />
+        전화번호 : <input type="text" placeholder="- 는 제외하고 입력하시오" name="userPhone"><br />
+        주소 : <input type="text" name="userAddr"><br />
+        생년월일 : <input type="date" name="userBirth"><br />
+        성별 : 남<input type="radio" name="gender"> / 여<input type="radio" name="gender"> <br />
+        취미 : Java<input type="checkbox" name="hobby">
+        DK<input type="checkbox" name="hobby">
+        HTML<input type="checkbox" name="hobby"><br />
+        이메일 : <input type="email" name="userEmail"><br /><br />
+   
+    &nbsp;<input type="submit" value="회원가입">
+    </form>
+
+</body>
+
+<script>
+    function submit1(){
+
+    }
+    var pw1;
+    var pw2;
+    
+    function check1(){
+    pw1 = document.getElementById("userPw").value;
+    pw2 = document.getElementById("checkPw").value;
+    var msg = document.getElementById("msg");
+        if(pw1==pw2){
+            msg.innerHTML = "비밀번호가 같습니다.";
+        }else{msg.innerHTML = "비밀번호가 틀립니다.";}
+    }
+
+    //  Q1. 문서내에서 name값이 "check"인 녀석을
+    //      pw2에 담고 
+
+    //  Q2. check1() 함수를 만들어서
+    //  Q3. 비밀번호와 비밀번호 확인에 입력한 값이 같으면
+    //  Q4. id가 msg인 영역에 '비밀번호가 같습니다.' 출력
+    //  Q5. 다르면 '비밀번호가 틀립니다.' 출력
+</script>
+
+</html>

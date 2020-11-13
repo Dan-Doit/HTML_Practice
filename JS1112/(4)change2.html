@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>이미지 변경</title>
+</head>
+
+<body>
+    <button id="btn1">텍스트표시(innerHTML)</button>
+    <button id="btn2">  텍스트표시(write)</button>
+    <button id="btn3">이미지 변경</button>
+    <h1 id="elem"></h1>
+    <img src="3d2.jpg" id="image" width="200px">
+</body>
+
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    var elem = document.getElementById("elem");
+    var image = document.getElementById("image");
+
+    btn1.addEventListener("click",btn11);
+    btn2.addEventListener("click",btn12);
+    btn3.addEventListener("click",btn13);
+
+    function btn11(){
+        document.getElementById("elem").innerHTML = "innerHTML 등장!";
+    }
+    function btn12(){
+        document.write("write 등장!");
+    }
+    var i = 0;
+    function btn13(){
+       if(i==0){
+        image.src="23c32.jpg";
+        i++;
+       }else if(i==1){
+        image.src="3d2.jpg";
+        i--;
+       }
+    }
+</script>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+
+</head>
+
+<body><br/><br/><br/><br/><br/><br/><br/><br/>
+    <h3>당신이 입력한 값 : <span id="colon"></span></h3>
+    <input type="text" id="inp" onkeyup="keyup1('up')"><a id="a">(<span id="count">0</span>자입력) </a>
+</body>
+
+<script>
+    function keyup1(key) {
+        if (key == "up") {
+            var msg = document.getElementById("inp").value;
+            var lenght = msg.length;
+            var txt = msg.split("");
+            if (lenght < 11) { // 10글자 이상 출력 안되게
+                document.getElementById("count").innerHTML = lenght; // 글자수 출력
+                document.getElementById("colon").innerHTML = msg; // 입력하고있는거 출력
+                if(lenght>4){a.style.color = "orange";} // 5글자부터 주황색
+                if (lenght==10){a.style.color = "red" ;} // 10글자이상 빨간색
+            }
+            if (lenght > 10) { 
+            alert("10자 이하로만 입력하시오."); // 10글자 이상 치면 경고창
+            var msg1 = txt.slice(0,10); // 만약 비밀번호같은걸 틀렷을때 초기화하고싶다면 var msg1 = txt.slice(0,0); 이렇게써서 초기화시킴.
+            var msg2 = msg1.join("");
+
+            // document.getElementById("colon").innerHTML = ""; 초기화 했을때 입력한 값도 초기화시킴.
+            // msg3 = msg.substring(0,10); // 10글자만 짤라서
+            // document.getElementById("inp").value = msg3; // 10글자만 나오게
+            document.getElementById("inp").value = msg2;
+            }
+        } 
+    }
+</script>
+
+</html>
