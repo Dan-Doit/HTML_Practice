@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS_display</title>
+    <style>
+        div{
+            border: 1px solid black;
+        }
+        #div1{
+            border: 1px solid red;
+            display: none;
+            /* 해당 태그를 보이지 않게 한다 + 영역도 차지하지 않는다 */
+        }
+        #div2{
+            border: 1px solid orange;
+            display: inline;
+            /* inline을 쓰면 줄바꿈이 일어나지 않는다 div가 옆에 계속 생김*/
+            /* inline을 쓰면 magin top bottom이 안먹힘  */
+            /* inline을 쓰면 width height이 안먹히고 컨텐츠 크기에 맞춰짐. */
+           /*  margin-top: 100px;
+            margin-bottom: 100px; */
+            width: 100px;
+            height: 100px;
+        }
+        #div3{
+            border: 2px solid yellow;
+            display: block;
+            /* block - 줄바꿈이 일어나고 옵션이 다 먹힘. */
+            margin-top: 20px;
+            margin-bottom: 20px;   
+            width: 200px;
+            height: 200px;
+        }
+        #div4{
+            border: 1px solid green;
+            display: inline-block;
+            /* inline-block - inline과 같이 div가 옆에 계속 생기고
+            기본값은 컨텐츠 크기에 맞춰지고
+            옵션을 적용하면 옵션들이 다 먹힘 */
+    
+        }
+        #div0{
+            visibility: hidden;
+        /* 화면에 보이지는 않지만 영역은 가지고있음  */
+        }
+        
+    </style>
+</head>
+<body>
+    <div>div</div>
+    <div id="div1">div1</div>
+    <div id="div2">div2</div>
+    <div id="div3">div3</div>
+    <div>div</div>
+    <div id="div4">div4</div>
+    <div id="div0">div0</div>
+    <div id="div4">div4</div>
+    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</body>
+</html>

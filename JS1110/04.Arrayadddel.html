@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array</title>
+</head>
+<body>
+
+</body>
+
+<script>
+   // 배열 선언 방법 1 
+   var arrNum = [];
+
+   // 배열 선언 방법 2
+   var arrStr = new Array();
+
+   // 배열의 값 집어넣기
+   arrNum = [1,2,3,4,5];
+
+   // push를 통해 배열값 추가하기! (푸쉬로 추가하면 항상 마지막에 추가됨)
+   arrStr.push("A");
+   arrStr.push("B");
+   arrStr.push("C");
+   arrStr.push("D");
+   arrStr.push("E");
+
+   // length를 이용한 배열의 크기확인
+   console.log(arrNum.length);
+   
+   // isArray 를 사용한 배열확인
+   console.log(Array.isArray(arrStr))
+</script>
+</html>

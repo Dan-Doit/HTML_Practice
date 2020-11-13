@@ -1,0 +1,34 @@
+li{
+    color: gray;
+}
+
+.classcel{
+    color:blueviolet;
+}
+
+#idcel1{
+    color: lightcoral;
+}
+#idcel2{
+    color: cadetblue;
+}
+
+p{
+    color: khaki;
+}
+h2{
+    color: lightseagreen;
+}
+.ex{
+    color: olive;
+}
+
+h1{
+    color: palegreen;
+}
+h2.ex{
+    color: salmon;
+}
+p.ex{
+    color: rosybrown;
+}

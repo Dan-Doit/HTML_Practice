@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Event</title>
+
+</head>
+<!-- body -->
+<body>
+    <fieldset>
+        <input type="text" id="key1" onkeydown="keyupdown('down')" onkeyup="keyupdown('up')">
+        <h3 id="typing">표시될 부분</h3>
+    </fieldset>
+
+    <fieldset>
+        <legend>자동차 제조사</legend>
+        <select name="select" id="mysel" onchange="sel()">
+            <option>선택해주세요</option>
+            <option value="https://www.audi.co.kr">아우디</option>
+            <option value="https://www.mercedes-benz.co.kr">밴츠</option>
+            <option value="https://www.tesla.com">테슬라</option>
+             <option value="https://www.bmw.co.kr">BMW</option>
+             <option value="https://www.hyundai.com">현대</option>
+        </select>
+        <h3 id="company">표시될 부분</h3>
+    </fieldset>
+</body>
+
+<!-- script -->
+<script>
+    function keyupdown(evt){
+        if(evt=="up"){
+            // 키를 땔때 event 발생
+            // "KEY UP" 출력
+            // document.getElementById("typing").innerHTML = "KEY UP";
+            msg = document.getElementById("key1").value;
+            document.getElementById("typing").innerHTML = msg;
+
+        }
+
+        if(evt=="down"){
+            // 키가 눌릴때 이벤트 발생
+            // "KEY DOWN" 출력
+            document.getElementById("typing").innerHTML = "KEY DOWN";
+
+        }
+    }
+
+
+    function sel(){
+        car = document.getElementById("mysel").value; 
+        document.getElementById("company").innerHTML = car;
+    }
+</script>
+</html>

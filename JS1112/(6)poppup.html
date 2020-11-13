@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>History</title>
+</head>
+<body>
+    <button id="btn1">경고창</button>
+    <button id="btn2">확인창</button>
+    <button id="btn3">입력창</button>
+</body>
+
+<script>
+    btn1.addEventListener("click",popup);
+    btn2.addEventListener("click",conf);
+    btn3.addEventListener("click",promp);
+
+    function popup(){
+        alert("왜 괜히 누르냐 귀찮게 ;");
+    }
+    function conf(){
+        var con = confirm("정말로 삭제하시겠습니까?"); // confirm - 확인창을 열어줌
+        // var con = confirm("네이버로 가시겠습니까 ?");
+        if(con){
+            alert("삭제가 완료됐습니다.")
+            // location.href = "http://www.naver.com";
+        }else{
+            alert("장난치지마라");
+        }
+    }
+    function promp(){
+        var stuname = prompt("너의 이름은?"); // prompt - 입력창을 띄워줌
+        if(stuname==""){
+            alert("다시 입력해 주세요.")
+           promp();
+        }else if(stuname==null){}
+        else{alert(stuname+"님 반갑습니다!") // 입력을 한 뒤 이쁘게 띄워줌
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,17 @@
+label{
+    border: solid 1px black;
+    border-collapse: collapse;
+}
+
+input{
+    background-color: bisque;
+
+}
+/* 초점이 맞춰질때의 색 */
+input:focus{
+    background-color: blueviolet;
+}
+
+input:hover{
+    background-color: brown;
+}

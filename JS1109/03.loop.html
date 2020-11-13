@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loop</title>
+</head>
+
+<body>
+
+</body>
+
+    <script>
+        var i = 1;
+        // while문 어떤 조건이 만족할 때까지 계속 반복
+        while (i<11) {
+            console.log("i = " + i);
+            i++;
+        }
+        // for문 반복횟수를 정하고 반복문을 실행
+        for (var j = 0; j < 11; j++){
+            console.log("j = " + j);
+        }
+        
+        // 구구단 2-9단 HTML에 출력해보기
+        for(var n=2; n<10; n++){
+            document.write("========"+n+"단 시작=======<br>")
+            for(var m=1; m<10; m++){
+                document.write(n + " x " + m +" = "+ n*m+"<br>");
+            }
+        }
+
+      
+    </script>
+</html>

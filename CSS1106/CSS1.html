@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>선택자 우선순위</title>
+    <link rel="stylesheet" href="CSS1.css" type="text/css">
+</head>
+<body>
+    <h3>선택자 우선순위</h3>
+    <ol>
+        <li>태그 선택자</li>
+        <li class="classcel">클래스 선택자</li>
+        <li id="idcel1">아이디 선택자</li>
+        <li style="color: aquamarine;">태그 안에 스타일 지정</li>
+    </ol>
+
+    <ul>
+        <li>태그 선택자</li>
+        <li class="classcel" id="idcel2">태그 + 클래스 + 아이디</li>
+        <li class="classcel" id="idcel3" style="color: brown;">태그 + 클래스 + 아이디 + 직접스타일</li>
+    </ul>
+
+
+    <h1>헤드라인은 무슨색</h1>
+    <h2>헤드라인 2는 무슨색</h2>
+    <h2 class="ex">ex는 무슨색</h2>
+    <p class="ex">는 무슨색</p>
+</body>
+</html>

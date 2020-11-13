@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Add Event Listner</title>
+ 
+</head>
+<!-- body -->
+<body>
+    <fieldset>
+        <legend>Event Listner</legend>
+
+            <input type="text" id="input">
+            <h3 id="msg">FOCUS</h3>
+
+    </fieldset>
+</body>
+
+<!-- script -->
+<script>
+
+    /*텍스박스가 굵어짐
+    <input type="text" id="input" focusin="focin()" focusout="focout()">*/
+    // addEventListner : event를 깔끔하게 작업하기 위해 사용
+    // document.addEventListner(event, function)
+
+
+    var txt = document.getElementById("input");
+    // 같은의미 => onclick = "click()"
+    txt.addEventListener("click",click)
+    txt.addEventListener("focusin",focin);
+    txt.addEventListener("focusout",focout);
+
+    function click(){
+
+    }
+
+    function focin(){
+        document.getElementById("msg").innerHTML = "FOCUS IN";
+    }
+
+    function focout(){
+        document.getElementById("msg").innerHTML = "FOCUS OUT";
+    }
+</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>variable</title>
+   <style>
+       #div1{
+           margin: 10px;
+           padding: 10px;
+           border: 1px solid red;
+       }
+   </style>
+
+</head>
+<body>
+    <div id="div1">ABC</div>
+</body>
+
+<!-- script -->
+<script>
+    // 데이터타입 : 정수형, 실수형, 문자형, 논리형
+    // 정수형 : byte, short, int, long
+    // 실수형 : float, double
+    // 문자형 : char
+    // 논리형 : boolean
+
+    // 자바스크립트에서 모든 변수의 데이터타입 표현
+    // var
+
+    // int num = 11;
+    // var num = 11;
+
+    // String ebdd = "임베디드 과정";
+    // var ebdd = "임베디드 과정";
+
+    // Sysout.out.println();
+    // console. log();
+    console.log("consol창에 출력됩니다.");
+    document.write("html창에 출력합니다.<br>"); 
+    document.write("줄바꿈은 이렇게 합니다.");
+    // 아이디가 div1인 친구를 가져와서 넣는작업
+    var obj = document.getElementById("div1");
+    var obj2 = document.getElementById("div1").value;
+    console.log("obj");
+    // 타입 확인하기
+    console.log(typeof obj);
+    // 구조 확인하기
+    console.dir(obj);
+
+    console.log(obj2);
+    console.log("obj2")
+    console.log(typeof obj2)
+
+    var i = 1.1;
+    var s = "10";
+    var b = false;
+
+    console.log(typeof (b+s));
+    console.log(typeof i);
+    console.log(typeof s);
+
+    
+
+
+
+    var z = new Array(1,2,3,4,5);
+
+    for(i=0;i<z.length;i++){
+        if(z[i]!=1){
+            document.writeln(z[i] + "<br>");
+        }
+    }
+
+</script>
+
+</html>

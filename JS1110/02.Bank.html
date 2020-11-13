@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DanBank</title>
+    <link rel="stylesheet" href="02.Bankcss.css" type="text/css">
+</head>
+<body onload="Account.now()">
+    <div id="first">
+    <fieldset>
+        <legend><span class="a1">DAN</span> BANK</legend>
+        <input type="text" placeholder="금액을 입력해주세요" id="amount"><br>
+        <input class="a2" type="button" value="입금" onclick="Account.deposit()">
+        <input class="a2" type="button" value="출금" onclick="Account.withdraw()">
+        <input class="a2" type="button" value="조회" onclick="Account.search()">
+        <h2 id="front"></h2>
+    </fieldset>
+</div>
+</body>
+
+<script>
+    // field
+    var Account = {};
+    var text = document.getElementById("amount");
+    var inner = document.getElementById("front");
+    Account.balance = 0;
+
+    // method
+    // function method(param){};
+    // 같은말이지만 객체형으로 이런식으로 쓸수있다. 
+
+    // 예금
+    Account.deposit = function(){
+        if(text.value==""){
+            alert("금액을 입력해 주세요");     
+        }else{
+        var amount = parseInt(text.value);
+        this.balance += amount;
+        text.value = "";
+        text.focus;
+        inner.innerHTML=amount+"원이 입급되었습니다.";
+        }
+    }
+    // 출금
+    Account.withdraw = function(){
+
+        if(text.value==""){
+            alert("금액을 입력해 주세요");
+        }else{
+            var amount = parseInt(text.value);
+            
+            if(this.balance>=amount){
+            this.balance -= amount
+            inner.innerHTML=amount+"원이 출금되었습니다.";
+            }else{
+            alert("잔액이 부족합니다.");
+            }
+        text.value = "";
+        text.focus;
+
+        }
+
+
+    }
+
+    Account.search = function(){
+        inner.innerHTML="현재 잔액은 "+this.balance+"원 입니다.";
+    }
+
+    Account.now = function(){
+        inner.innerHTML="안녕하세요 DAN BANK 입니다.";
+    }
+
+
+</script>
+</html>

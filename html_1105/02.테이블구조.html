@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>테이블(표) 만들기</title>
+    <style>
+        table,tr,td,th{
+            border: 1px solid;
+            text-align: center;
+            /* 한줄 붕괴시키기 */
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <!-- 행열에는 헤드 바디 푸터가 있는데 이들은 자신의 위치 이외는 절대 변하지않는다. -->
+    <table>
+        <caption>테이블 제목</caption>
+        <tfoot>
+            <tr>
+                <td>3행 1열</td>
+                <td>3행 2열</td>
+                <td>3행 3열</td>
+            </tr>
+        </tfoot>
+        <thead>
+        <tr>
+            <td>1행 1열</td>
+            <td>1행 2열</td>
+            <td>1행 3열</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>2행 1열</td>
+            <td>2행 2열</td>
+            <td>2행 3열</td>
+        </tr>
+    </tbody>
+
+    </table>
+</body>
+</html>

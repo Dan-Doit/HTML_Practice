@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>CSS_position</title>
+    <style>
+        #div1{
+            width: 350px;
+            height:  350px;
+            border:  2px solid hotpink;
+        }
+    /*    ↓ div1안에있는 div에 적용하겠다. */
+        #div1 div{
+            padding: 10px;
+            border:1px solid green;
+            background-color:lightgreen;
+        }
+        #box1{
+            position: static;
+            /* 원점에 위치하고 top과 left 속성이 적용되지 않는다. */
+            top: 20px;
+            left: 20px;
+        }
+        #box2{
+            position: relative;
+            /*  이전 영역이 끝나는 위치를 기준으로 위치를 지정한다. */
+            top: 20px;
+            left: 20px;
+        }
+        #box3{
+         position: absolute;
+         /* 원점(절대좌표)로 부터 위치를 지정할 수 있다
+         컨텐츠의 크기만큼 영역을 갖는다 */
+         top:20px ;
+         left:20px ;
+        }
+        #box4{
+            position: fixed;
+            /* 컨텐츠의 크기만큼 영역을 갖는다 */
+            /* 스크롤과 상관없이 항상 고정된 좌표에 위치한다. */
+            bottom: 20px;
+            right: 20px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="box1">box1</div>
+        <div id="box2">box2</div>
+        <div id="box3">box3</div>
+        <div id="box4" > <a href="#box1"> box4</a></div>
+
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    </div>
+</body>
+</html>

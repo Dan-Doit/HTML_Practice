@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Move Homepage</title>
+</head>
+<body>
+    <button onclick="moving()">누르면 이동해요!</button>
+    <button onclick="alt()">누르면 이동할까요?</button>
+    <h2 id ="msg"> <span id="aa" style="color: red;"></span> 초 후에 이동합니다.</h2>
+</body>
+
+<!-- script -->
+<script>
+
+    var time;
+    var x = 5;
+    function alt(){
+        alert("여기서는 아무것도 안되나요?");
+    }
+
+    function one(){
+        setInterval(function(){
+            x--;
+            aa.innerHTML = x;
+
+        },1000)
+    }
+
+    function moving(){
+        one();
+
+        setTimeout(function(){
+
+            location.href="https://www.naver.com"
+             
+        },5000);
+    }
+</script>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Operation</title>
+   <style>
+       #div1{
+           margin: 10px;
+           padding: 10px;
+           border: 1px solid red;
+       }
+   </style>
+
+</head>
+<body>
+    <div id="div1">ABC</div>
+</body>
+
+<!-- script -->
+<script>
+    /*
+    1.  연산자의 종류
+        +, -, *, /, %
+        ++,--
+
+    2. 자바스크립트에 내장된 함수
+        Math.sqrt(z) : z에 대한 루트값
+        Math.abs(y-x) : y에서 x를 뺀 값에 대한 절대값
+        z.toFixed(2) : z를 소수점 2자리까지만 표시
+        parseInt(y) : y를 소수점 버리고 정수로 출력
+
+    3. 삼항연산자 => (조건식) ? 참 : 거짓;
+    */
+
+   var x = 3;
+   var y = 1.5;
+   var z = x*y;
+
+   console.log(x);
+   console.log(y);
+   console.log(z);
+
+   console.log("5 % 3 : " + 5%3);
+   console.log("parseInt(y) : " + parseInt(y));
+   console.log("Math.sqrt(z) : " + Math.sqrt(z));
+   console.log("Math.abs(y-x) : " +Math.abs(y-x));
+   console.log("z.toFixed(2) : " + z.toFixed(2));
+
+   var now = new Date();
+   console.log(now);
+   document.write(now+"<br>"); 
+
+   var ampm = now.getHours() < 12 ? "오전":"오후";
+   var hh = now.getHours;
+   var pm = now.getHours() >12 ? now.getHours()-12:now.getHours();
+   if(pm<10){pm = "0" + pm}
+   var mm = (now.getMinutes()<10) ? "0"+now.getMinutes() : now.getMinutes();
+   var ss = (now.getSeconds()<10) ? "0"+now.getSeconds() : now.getSeconds();
+
+   document.write("지금은 "+ampm+" "+pm+"시 : "+mm+"분 : "+ss+"초 입니다.<br/>")
+
+
+
+
+   function getdate(now){
+
+    var yyyy = now.getFullYear();
+    var mo = (now.getMonth()+1)<10?"0"+now.getMonth()+1:now.getMonth();
+    var dd = (now.getDay()<10)?"0"+now.getDay():now.getDay();
+
+    var ampm = now.getHours() < 12 ? "오전":"오후";
+    var hh = now.getHours() >12 ? now.getHours()-12:now.getHours();
+    if(hh<10){hh = "0" + hh}
+    var mm = (now.getMinutes()<10) ? "0"+now.getMinutes() : now.getMinutes();
+    var ss = (now.getSeconds()<10) ? "0"+now.getSeconds() : now.getSeconds();
+
+   return yyyy+"-"+mo+"-"+dd+"   "+ampm+" "+hh+" : "+mm+" : "+ss;
+   }
+
+   document.write(getdate(now));
+
+
+</script> 
+
+
+</html>

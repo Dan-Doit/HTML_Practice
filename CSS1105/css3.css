@@ -1,0 +1,14 @@
+ul,ol{
+    color: coral;
+}
+ul>li{
+    color: cornflowerblue;
+}
+
+.ol1 li{
+    color:cyan;
+}
+
+#ol2 li{
+    color: darkorchid;
+}

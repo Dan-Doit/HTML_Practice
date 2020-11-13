@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array</title>
+</head>
+<body>
+    <input type="text" id="text">
+    <button onclick="arrPush()">push</button>
+    <button onclick="arrPop()">pop</button>
+    <button onclick="arrUnshift()">unshift</button>
+    <button onclick="arrShift()">shift</button>
+    <button onclick="arrSplice()">splice</button>
+
+</body>
+
+<script>
+    var arrNum = [];
+    var i = 0;
+
+    for(i=0; i<5; i++){
+        arrNum[i] = i+1;
+    }
+
+    // push함수를 이용해서 배열의 뒤에 값을 추가하기
+    function arrPush(){
+        arrNum.push(i+1);
+        i++;
+        console.log(arrNum);
+    }
+    // Pop함수를 이용해서 배열의 뒤에 값을 빼기
+    function arrPop(){
+        i = arrNum.pop()-1;
+        console.log(arrNum);
+    }
+    // unshift 함수를 이용해서 배열의 앞에 값을 추가하기
+    function arrUnshift(){
+        arrNum.unshift(i+1);
+        i++
+        console.log(arrNum);
+    }
+    // unshift 함수를 이용해서 배열의 앞에 값을 삭제
+    function arrShift(){
+        i = arrNum.shift()-1;
+        console.log(arrNum);
+    }
+
+    // splice함수를 이용해서 특정 배열의 값을 삭제
+    function arrSplice(){
+        var txt = document.getElementById("text").value;
+
+        var txt1 = parseInt(txt);
+        var index = arrNum.indexOf(txt1);
+
+        console.log("test");
+        console.log(arrNum.indexOf(txt1));
+
+        if(index>-1){
+            // splice (인덱스 번호, 배열갯수)
+           arrNum.splice(index,1);
+           console.log(arrNum);
+        }else{
+            alert("값이 없습니다.");
+        }
+
+    }
+
+</script>
+</html>

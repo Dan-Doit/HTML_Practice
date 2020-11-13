@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>글자색 변경하기</title>
+</head>
+
+<body>
+    <h1 id="elem">글자 색상을 변경합니다!</h1>
+    <button id="btn">색상 변경</button>
+</body>
+
+<script>
+    var elem = document.getElementById("elem");
+    var btn = document.getElementById("btn");
+
+    var fColor = ["red", "orange", "yellow", "green", "blue", "navy", "purple"];
+    var i = 0;
+
+    /*  클릭 한번만 하면 0.5초마다 알아서 색깔 바꾸기  */
+    btn.addEventListener("click", start)
+
+    function start() {
+             setInterval(function () {
+            if (i == 7) {
+                i = 0;
+            }
+            elem.style.color = fColor[i]
+            i++;
+        }, 500)
+    };
+
+    // count하는 함수를 만들어놓고 setInterval로 호출한다음 시간을 정해주는 방법
+    // btn.addEventListener("click",setInterval(timecount, 500))
+    // 
+    // function timecount() {
+    //         if (i == 7) {
+    //             i = 0;
+    //         }
+    //         elem.style.color = fColor[i]
+    //         i++;
+    //     };
+    //-------------------------------------------------------------------------    
+    // /*    클릭 할 때 마다 색깔 바꾸기    */
+    // btn.addEventListener("click",click);
+
+    // function click(){
+    //     if(i==7){
+    //         i=0;}
+    //         elem.style.color = fColor[i];
+    //     i++;
+            
+    //    }
+
+
+</script>
+
+</html>

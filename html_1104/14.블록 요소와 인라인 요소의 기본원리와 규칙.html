@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>리스트의 메뉴화</title>
+    <style>
+        .test1{
+            background-color: violet;
+        }
+        #a1{
+            background-color: yellowgreen;
+        }
+        #t1{
+            background-color: tomato;
+            width: 80%;
+        }
+        span{
+            background-color: bisque;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>블록 요소와 인라인 요소의기본 원리와 규칙</h1>
+<p>블록라인은 기본적으로 줄바꿈이 일어나는 형태</p>
+<p>영역의 너비가 상위 영역의 전체 너비만큼 되는 형태</p>
+<p>h#태그, p태그, div태드 등이 있다.</p>
+
+<!-- 똑같은 값을 여러군데 줄수있다. -->
+<h2 class="test1">블록 요소</h2>
+<p class="test1">p태그는 블록 형태입니다.</p>
+<div class="test1">div태그는 블록 형태입니다.</div>    
+<br><br><br><br>
+
+
+
+<h2>인라인 요소</h2>
+<p>인라인요소는 블록요소와 반대</p>
+<br/> 줄바꿈이 일어나지 않는다.
+
+<p>인라인 형태 요소들 : a태그, img태그, span태그, em, 강조태그
+    
+    <span>이것은 span태그 입니다.</span><br>
+    <p id="t1">이것은 <span>p태그 안에 span태그</span>입니다.</p><br>
+    <!-- 눌러도 현재 페이지에 머무를때 그냥 #을 쓰기도한다. -->
+    <a href="#" id="a1">a태그도 인라인요소</a><br>
+</p>
+<br><br><br><br><br>
+
+<h2>블록 요소와 인라인 요소의 규칙</h2>
+<ul type="square">
+    <li>대부분의 요소는 같은 형태의  다른 요소를 안에 포함할 수 있습니다.
+        <br>(블록 요소 안에 블록요소, 인라인 요소안에 인라인 요소)
+    </li>
+    <li>대부분의 블록 요소는 다른 인라인 요소도 안에 포함할 수 있습니다.</li>
+    <li>하지만, 인라인 요소는 블록 요소를 포함 할 수 없습니다.</li>
+</ul>
+</body>
+</html>

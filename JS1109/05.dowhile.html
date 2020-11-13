@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>while</title>
+</head>
+
+<body>
+    <h2>BREAK</h2>
+    <br>
+    <p id="break"></p>
+    <br>
+    <h2>COUNTINUE</h2>
+    <p id="continue"></p>
+</body>
+    <script>
+        var text1 = "";
+        var text2 = "";
+
+        for(var i=1; i<=10; i++){
+            text1 += "The number is " +i+"<br/>"; 
+            // break로 반복문 중간에서 끊기
+            if(i==6){break;}
+        }
+        console.log(text1);
+        document.getElementById("break").innerHTML = text1;
+
+        for(var i=1; i<=10; i++){
+            // continue로 반복문 중간에서 건너뛰기
+            if(i%3==0){continue;}
+            text2 += "The number is " +i+"<br/>"; 
+        }
+        document.getElementById("continue").innerHTML = text2;
+
+
+    </script>
+</html>

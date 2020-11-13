@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+
+    <title>Window</title>
+</head>
+<body>
+    <button>창열기</button>
+    <button>창닫기</button>
+    <button>창크기 변경</button>
+</body>
+
+<!-- script -->
+<script>
+    // 이런식으로 태그를 한번에 받아오면 배열에 담긴다.
+    var btn = document.getElementsByTagName("button");
+    // btn[0] : 창열기
+    // btn[1] : 창닫기
+    // btn[2] : 창크기
+
+    var mywindow;
+    btn[0].addEventListener("click",winopen);
+    btn[1].addEventListener("click",winclose);
+    btn[2].addEventListener("click",winsize);
+
+
+    function winopen(){
+        // window.open("URL","Title","Option")
+        mywindow = window.open("http://127.0.0.1:5500/JS1111/07.screen.html","myWindow","width=500,height=500,top=300,left=300");
+    }
+
+    function winclose(){
+        // 내가 open()으로 만든 창을 mywindow라는 변수에 저장하고 이걸 닫아주는 구문이 close()이다.
+        mywindow.close();
+    }
+
+    function winsize(){
+        // 크기를 100x100으로 고정시킨다.
+        // mywindow.resizeTo(100,100);
+
+        // 크기를 100x100만큼 증가
+        mywindow.resizeBy(100,100);
+        // 새로운 창이 맨위로 올라간다. 
+        mywindow.focus();
+    }
+</script>
+</html>

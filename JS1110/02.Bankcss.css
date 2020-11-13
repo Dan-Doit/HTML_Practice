@@ -1,0 +1,40 @@
+body{
+    background-color: #370d00;
+    color: #370d00;
+
+}
+#first{
+    margin: auto;
+    margin-top: 10%;
+    background-color: #a46843;
+    width: 50%;
+    border-radius: 25px;
+    height: 500px;
+}
+
+.a1{
+    color: brown;
+
+}
+
+input{
+    background-color: navajowhite;
+}
+.a2{
+    background-color: #bd8e62;
+}
+.a2:hover{
+    background-color: yellow;
+}
+div{
+    height: 1000px;
+    text-align: center;
+    line-height: 100px;
+}
+fieldset{
+    border: none;
+}
+legend{
+    transition: 1s;
+    font-size: 90px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <title>테이블(표) 만들기</title>
+    <style>
+        table,tr,td,th{
+            border: 1px solid;
+            text-align: center;
+            /* 한줄 붕괴시키기 */
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <!-- table 태그는 표를 만들어준다. -->
+    <table>
+        <!-- tr태그(행) -->
+        <!-- td태그(열) -->
+        <tr>
+            <td>1행 1열</td>
+            <td>1행 2열</td>
+        </tr>
+        <tr>
+            <td>2행 1열</td>
+            <td>2행 2열</td>
+        </tr>
+    </table>
+    <hr>
+    <table>
+        <tr>
+            <!-- th태그는 따로 지정하지 않아도 굵은 글씨이기 때문에 제목셀이라고도 한다. -->
+            <th>1행 1열</th>
+            <td>1행 2열</td>
+        </tr>
+        <tr>
+            <th>2행 1열</th>
+            <td>2행 2열</td>
+        </tr>
+    </table>
+    <hr>
+<table>
+    <tr>
+        <th>이름</th>
+        <th>나이</th>
+        <th>연락처</th>
+        <th>사는곳</th>
+    </tr>
+
+    <tr>
+        <td>아이언맨</td>
+        <td>28세</td>
+        <td>010-0000-2222</td>
+        <td>남동구</td>
+    </tr>
+
+    <tr>
+        <td>토르</td>
+        <td>28세</td>
+        <td>010-1111-2222</td>
+        <td>부천시</td>
+    </tr>
+</table>
+</body>
+</html>
