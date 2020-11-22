@@ -18,8 +18,13 @@ p{
 }
 
 .global-nav{
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
     height: 44px;
     padding:0 1rem;
+    border-bottom: 1px solid #888;
 }
 
 .global-nav-links,
@@ -40,7 +45,12 @@ p{
     font-size: 1.4rem;
     font-weight: bold;
 }
+
 .local-nav{
+    position: absolute;
+    width: 100%;
+    top: 45px;
+    left: 0;
     height: 52px;
     border-bottom: 1px solid #dddddd;
     padding: 0 1rem;
@@ -59,6 +69,7 @@ a{
 }
 
 .scroll-section {
+    border: 1px red solid;
     padding-top: 50vh;
 }
 
@@ -74,6 +85,9 @@ a{
     height: 3em;
     margin-bottom: 5px;
     font-size: 2rem;
+    /* 투명도 조정 */
+    opacity: 0;
+    top : 35vh;
 
 }
 
@@ -108,6 +122,15 @@ a{
     font-size: 3.5rem;
 
 }
+#scroll-section-2 .b{
+    top : 10%;
+    left : 40%;
+}
+#scroll-section-2 .c{
+    top : 15%;
+    left : 45%;
+}
+
 
 .desc-message{
     width: 50%;
@@ -152,7 +175,6 @@ a{
 .sticky-elem{
     display: none;
     position: fixed;
-    top: 0px;
     left: 0px;
     width: 100%;
 }
@@ -180,6 +202,13 @@ a{
     }
     #scroll-section-2 .main-message{
         font-size: 6vw;
+    }
+    #scroll-section-2 .b{
+        top : 20%;
+        left : 53%;
+    }
+    #scroll-section-2 .c{
+        left : 55%;
     }
     .main-message samll{
         font-size: 1.5vw;
