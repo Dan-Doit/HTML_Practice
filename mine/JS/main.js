@@ -25,10 +25,16 @@
                 messageA:document.querySelector('#scroll-section-0 .main-message.a'),
                 messageB:document.querySelector('#scroll-section-0 .main-message.b'),
                 messageC:document.querySelector('#scroll-section-0 .main-message.c'),
-                messageD:document.querySelector('#scroll-section-0 .main-message.d')
+                messageD:document.querySelector('#scroll-section-0 .main-message.d'),
+                canvas:document.querySelector('#video-canvas-0'),
+                canvasContext:document.querySelector('#video-canvas-0').getContext('2d'),
+                videoImage:[]
 
             },
             values : {
+                videoImageCount:300,
+                imageSequence:[0,299],
+                canvas_opacity_out:[1,0,{start:0.9, end:1}],
                 messageA_opacity_in:[0,1,{start:0.1, end:0.2}],
                 messageB_opacity_in:[0,1,{start:0.3, end:0.4}],
                 messageC_opacity_in:[0,1,{start:0.5, end:0.6}],
@@ -68,8 +74,15 @@
                 messageC:document.querySelector('#scroll-section-2 .desc-message.c'),
                 pinB : document.querySelector('#scroll-section-2 .pin.b'),
                 pinC : document.querySelector('#scroll-section-2 .pin.c'),
+                canvas:document.querySelector('#video-canvas-2'),
+                canvasContext:document.querySelector('#video-canvas-2').getContext('2d'),
+                videoImage:[]
             },
             values : {
+                videoImageCount:960,
+                imageSequence:[0,959],
+                canvas_opacity_in:[0,1,{start:0, end:0.1}],
+                canvas_opacity_out:[1,0,{start:0.9, end:1}],
                 messageA_opacity_in: [0, 1, { start: 0.25, end: 0.3 }],
 				messageB_opacity_in: [0, 1, { start: 0.6, end: 0.65 }],
 				messageC_opacity_in: [0, 1, { start: 0.87, end: 0.92 }],
@@ -95,7 +108,14 @@
             heightNum:5,
             scrollHeight: 0,
             objs:{
-                container:document.querySelector('#scroll-section-3')
+                container:document.querySelector('#scroll-section-3'),
+                canvas:document.querySelector('.blend-elem-canvas'),
+                canvasContext:document.querySelector('.blend-elem-canvas').getContext('2d'),
+                imagePath:['../../apple-clone-v8/images/blend-image-1.jpg','../../apple-clone-v8/images/blend-image-2.jpg'],
+                images:[],
+            },
+
+            values:{
 
             }
         },
@@ -127,6 +147,9 @@
         }
         document.body.setAttribute('id',`show-scene-${currentScene}`);
 
+        const heightRatio = window.innerHeight/1080;
+        sceneInfo[0].objs.canvas.style.transform = `translate3d(-50%,-50%,0) scale(${heightRatio})`;
+        sceneInfo[2].objs.canvas.style.transform = `translate3d(-50%,-50%,0) scale(${heightRatio})`;
     }
 
     function calcValues(values, currentYOffset){
@@ -148,10 +171,37 @@
             }
         }else{
             rv = scrollRatio * (values[1]-values[0]) + values[0];
+            
         }
         return rv;
     }
 
+    function setCanvasImages(){
+        let imageElem;
+        for (let i = 0; i<sceneInfo[0].values.videoImageCount;i++ ){
+            // imageElem = document.createElement('img'); 으로도 사용가능
+            imageElem = new Image(); 
+            imageElem.src = `../../apple-clone-v8/video/001/IMG_${6726+i}.JPG`;
+            sceneInfo[0].objs.videoImage.push(imageElem);
+        }
+
+        let imageElem2;
+        for (let i = 0; i<sceneInfo[2].values.videoImageCount;i++ ){
+            // imageElem = document.createElement('img'); 으로도 사용가능
+            imageElem2 = new Image(); 
+            imageElem2.src = `../../apple-clone-v8/video/002/IMG_${7027+i}.JPG`;
+            sceneInfo[2].objs.videoImage.push(imageElem2);
+        }
+
+        let imageElem3;
+        for (let i of sceneInfo[3].objs.imagePath){
+            // imageElem = document.createElement('img'); 으로도 사용가능
+            imageElem3 = new Image(); 
+            imageElem3.src = `${i}`;
+            sceneInfo[3].objs.images.push(imageElem3);
+        }
+    }
+    setCanvasImages();
 
     function scrollAnimation(){
         const objs = sceneInfo[currentScene].objs;
@@ -162,6 +212,9 @@
 
         switch (currentScene){
             case 0:
+                let sequence = Math.round(calcValues(values.imageSequence,currentYOffset));
+                objs.canvasContext.drawImage(objs.videoImage[sequence],0,0);
+                objs.canvas.style.opacity = calcValues(values.canvas_opacity_out,currentYOffset);
                 // console.log('0 play');
                 if(scrollratio <= 0.22){
                     objs.messageA.style.opacity = calcValues(values.messageA_opacity_in,currentYOffset);
@@ -207,6 +260,15 @@
                 
                 break;
             case 2:
+                let sequence2 = Math.round(calcValues(values.imageSequence,currentYOffset));
+                objs.canvasContext.drawImage(objs.videoImage[sequence2],0,0);
+               
+                if(scrollratio <= 0.5){
+                    objs.canvas.style.opacity = calcValues(values.canvas_opacity_in,currentYOffset);
+                }else{
+                    objs.canvas.style.opacity = calcValues(values.canvas_opacity_out,currentYOffset);
+                }
+
                 if(scrollratio <= 0.32){
                     objs.messageA.style.opacity = calcValues(values.messageA_opacity_in,currentYOffset);
                     objs.messageA.style.transform = `translateY(${calcValues(values.messageA_translate_in,currentYOffset)}%)`;
@@ -241,7 +303,18 @@
                 break;
             case 3:
                 // console.log('3 play');
-                break
+                // 화면의 비율 맞추기
+                const widthRatio = window.innerWidth/objs.canvas.width;
+                const heightRatio = window.innerHeight/objs.canvas.height;
+                let canvasScaleRatio;
+                if(widthRatio >= heightRatio){
+                    canvasScaleRatio = widthRatio;
+                }else{
+                    canvasScaleRatio = heightRatio;
+                }
+                objs.canvas.style.transform = `scale(${canvasScaleRatio})`;
+                objs.canvasContext.drawImage(objs.images[0],0,0);
+                break;
         }
 
     }
@@ -275,7 +348,11 @@
  
     //DOMContentLoaded 도 가능하지만 이경우는 이미지를 로드안해도 실행됨(빠름 보통로드보다)
     //window.addEventListener('DOMContentLoaded',setLayout);
-    window.addEventListener('load',setLayout);
+    window.addEventListener('load',()=>{
+        setLayout();
+        sceneInfo[0].objs.canvasContext.drawImage(sceneInfo[0].objs.videoImage[0],0,0);
+        sceneInfo[2].objs.canvasContext.drawImage(sceneInfo[2].objs.videoImage[0],0,0);
+    });
     // 윈도우즈 사이즈가 변하면 자동으로 변한 사이즈만큼의 사이즈로 바뀌게
     window.addEventListener('resize',setLayout);
     // 스크롤 변화에 따라 이벤트 사용
@@ -283,7 +360,6 @@
         yOffset = parseInt(window.pageYOffset);
         scrollLoop();
     });
-
 
 
 })();
