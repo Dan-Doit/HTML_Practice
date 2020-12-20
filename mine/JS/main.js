@@ -109,13 +109,21 @@
             scrollHeight: 0,
             objs:{
                 container:document.querySelector('#scroll-section-3'),
+                caption:document.querySelector('.canvas-caption'),
                 canvas:document.querySelector('.blend-elem-canvas'),
                 canvasContext:document.querySelector('.blend-elem-canvas').getContext('2d'),
-                imagePath:['../../apple-clone-v8/images/blend-image-1.jpg','../../apple-clone-v8/images/blend-image-2.jpg'],
+                imagePath:['../../apple-clone-v8/images/blend-img-1.jpg','../../apple-clone-v8/images/blend-img-2.jpg'],
                 images:[],
             },
 
             values:{
+                rectLX:[0, 0, { start: 0, end: 0 }],
+                rectRX:[0, 0, { start: 0, end: 0 }],
+                rectBlend:[0, 0, { start: 0, end: 0 }],
+                rectBlendOut:[0, 0, { start: 0, end: 0 }],
+                caption_Opacity:[0, 1, { start: 0, end: 0 }],
+                caption_Translate:[20, 0, { start: 0, end: 0 }],
+                rectStart:0,
 
             }
         },
@@ -298,14 +306,43 @@
                     objs.pinC.style.transform = `scaleY(${calcValues(values.pinC_scaleY_out,currentYOffset)})`;
                 }
 
+                if(scrollratio > 0.9){
+                    const objs = sceneInfo[3].objs;
+                    const values = sceneInfo[3].values;
+                    const widthRatio = window.innerWidth/objs.canvas.width;
+                    const heightRatio = window.innerHeight/objs.canvas.height;
+                    let canvasScaleRatio;
+                    if(widthRatio >= heightRatio){
+                        canvasScaleRatio = widthRatio;
+                    }else{
+                        canvasScaleRatio = heightRatio;
+                    }
+                    objs.canvas.style.transform = `scale(${canvasScaleRatio})`;
+                    objs.canvasContext.drawImage(objs.images[0],0,0);
+                    // 캔버스 사이즈에 맞춰 사정한 inner값들
+                    const ractWidthRatio = document.body.offsetWidth / canvasScaleRatio;
+                    const ractHeightRatio = window.innerHeight/canvasScaleRatio;
     
-
+                    const whiteRect = ractWidthRatio * 0.15;
+                    values.rectLX[0] = (objs.canvas.width - ractWidthRatio) / 2;
+                    values.rectLX[1] = values.rectLX[0] - whiteRect;
+                    values.rectRX[0] = values.rectLX[0] + ractWidthRatio - whiteRect;
+                    values.rectRX[1] = values.rectRX[0] + whiteRect;
+    
+                    // objs.canvasContext.fillRect(values.rectLX[0],0,parseInt(whiteRect),ractHeightRatio);
+                    // objs.canvasContext.fillRect(values.rectRX[0],0,parseInt(whiteRect),ractHeightRatio);
+                    objs.canvasContext.fillStyle = 'white';
+                    objs.canvasContext.fillRect(values.rectLX[0],0,parseInt(whiteRect),ractHeightRatio);
+                    objs.canvasContext.fillRect(values.rectRX[0],0,parseInt(whiteRect),ractHeightRatio);
+                }
+                
                 break;
             case 3:
                 // console.log('3 play');
                 // 화면의 비율 맞추기
                 const widthRatio = window.innerWidth/objs.canvas.width;
                 const heightRatio = window.innerHeight/objs.canvas.height;
+                let step = 0;
                 let canvasScaleRatio;
                 if(widthRatio >= heightRatio){
                     canvasScaleRatio = widthRatio;
@@ -314,9 +351,90 @@
                 }
                 objs.canvas.style.transform = `scale(${canvasScaleRatio})`;
                 objs.canvasContext.drawImage(objs.images[0],0,0);
+                // 캔버스 사이즈에 맞춰 사정한 inner값들
+                const ractWidthRatio = document.body.offsetWidth / canvasScaleRatio;
+                const ractHeightRatio = window.innerHeight/canvasScaleRatio;
+
+                
+                if(!values.rectStart){
+                    // 객체의 전체적인 정보를 가져옴
+                    // values.rectStart = objs.canvas.getBoundingClientRect().top;
+                    values.rectStart = objs.canvas.offsetTop + (objs.canvas.height - (objs.canvas.height*canvasScaleRatio))/2;
+                    values.rectLX[2].start = (window.innerHeight / 2 ) / scrollHeight;
+                    values.rectRX[2].start = (window.innerHeight / 2 ) / scrollHeight;
+                    values.rectLX[2].end = values.rectStart / scrollHeight;
+                    values.rectRX[2].end = values.rectStart / scrollHeight;
+                } 
+
+                const whiteRect = ractWidthRatio * 0.15;
+                values.rectLX[0] = (objs.canvas.width - ractWidthRatio) / 2;
+                values.rectLX[1] = values.rectLX[0] - whiteRect;
+                values.rectRX[0] = values.rectLX[0] + ractWidthRatio - whiteRect;
+                values.rectRX[1] = values.rectRX[0] + whiteRect;
+
+                // objs.canvasContext.fillRect(values.rectLX[0],0,parseInt(whiteRect),ractHeightRatio);
+                // objs.canvasContext.fillRect(values.rectRX[0],0,parseInt(whiteRect),ractHeightRatio);
+                objs.canvasContext.fillStyle = 'white';
+                objs.canvasContext.fillRect(parseInt(calcValues(values.rectLX,currentYOffset)),0,parseInt(whiteRect),ractHeightRatio);
+                objs.canvasContext.fillRect(parseInt(calcValues(values.rectRX,currentYOffset)),0,parseInt(whiteRect),ractHeightRatio);
+
+                if(scrollratio < values.rectLX[2].end){
+                    step = 1;
+                    objs.canvas.classList.remove('sticky');
+                }else{
+                    
+                    step = 2;
+                    //rectBlend:[0, 0, { start: 0, end: 0 }],
+                    objs.canvas.classList.add('sticky');
+                    objs.canvas.style.top = `${-(objs.canvas.height - (objs.canvas.height*canvasScaleRatio))/2}px`;
+                    
+                    values.rectBlend[0] = 0;
+                    values.rectBlend[1] = objs.canvas.height;
+                    values.rectBlend[2].start = values.rectLX[2].end;
+                    values.rectBlend[2].end = values.rectLX[2].end + 0.2;
+                    let blendHight = calcValues(values.rectBlend,currentYOffset);
+                    // 이미지 블랜딩 처리
+                    objs.canvasContext.drawImage(objs.images[1],
+                        0, objs.canvas.height - blendHight, objs.canvas.width, blendHight,
+                        0, objs.canvas.height - blendHight, objs.canvas.width, blendHight,
+                    );
+
+                    if(scrollratio > values.rectBlend[2].end){
+                        objs.canvas.style.marginTop = 0;
+                        values.rectBlendOut[0] = canvasScaleRatio;
+                        values.rectBlendOut[1] = document.body.offsetWidth / (objs.canvas.width * 1.5);
+                        values.rectBlendOut[2].start = values.rectBlend[2].end;
+                        values.rectBlendOut[2].end = values.rectBlend[2].end + 0.2;
+                        
+                        objs.canvas.style.transform = `scale(${calcValues(values.rectBlendOut,currentYOffset)})`;
+                    }
+
+                    if(scrollratio > values.rectBlendOut[2].end && values.rectBlendOut[2].end > 0){
+                        objs.canvas.classList.remove('sticky');
+                        objs.canvas.style.marginTop = `${scrollHeight * 0.4}px`;
+
+                        values.caption_Opacity[2].start = values.rectBlendOut[2].end;
+                        values.caption_Opacity[2].end = values.rectBlendOut[2].end + 0.1;
+                        values.caption_Translate[2].start = values.caption_Opacity[2].start;
+                        values.caption_Translate[2].end = values.caption_Opacity[2].end;
+
+                        objs.caption.style.opacity = `${calcValues(values.caption_Opacity,currentYOffset)}`;
+                        objs.caption.style.transform = `translate3d(0,${calcValues(values.caption_Translate,currentYOffset)}%,0)`;
+                    }
+
+                    
+                }
+
                 break;
         }
 
+    }
+    function checkMenu(){
+        if(yOffset > 44){
+            document.body.classList.add('local-nav-sticky');
+        }else{
+            document.body.classList.remove('local-nav-sticky');
+        }
     }
 
     function scrollLoop(){
@@ -325,7 +443,7 @@
         for(let i =0; i<currentScene; i++){
             prevScrollHeight = prevScrollHeight + sceneInfo[i].scrollHeight;
         }
-
+       
         if(yOffset > prevScrollHeight + sceneInfo[currentScene].scrollHeight){
             enterNewScene = true;
             currentScene++;
@@ -359,6 +477,7 @@
     window.addEventListener('scroll',()=>{
         yOffset = parseInt(window.pageYOffset);
         scrollLoop();
+        checkMenu();
     });
 
 

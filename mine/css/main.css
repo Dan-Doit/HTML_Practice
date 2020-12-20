@@ -57,6 +57,15 @@ p{
     border-bottom: 1px solid #dddddd;
     padding: 0 1rem;
 }
+
+.local-nav-sticky .local-nav{
+    position: fixed;
+    top: 0%;
+    /* rgba는 상속되지않고 오직 본인만 투명이된다. A = Alpha */
+    background : rgba(255,255,255,0.1);
+    /*  */
+    backdrop-filter: saturate(150%) blur(10px);
+}
 /* not은 괄호안의 값을 제거한다. 여기서 나는 클래스가 product인걸 제거함 */
 .local-nav-links a:not(.programmer-dan) {
     margin-left: 2em;
@@ -71,7 +80,8 @@ a{
 }
 
 .scroll-section {
-    border: 1px red solid;
+    /* relative를 사용하면 자식이 같은 yoffsettop값을 재설정 가능함 */
+    position: relative;
     padding-top: 50vh;
 }
 
@@ -150,7 +160,7 @@ a{
 }
 
 .mid-message{
-    max-width: 1000px;
+    width: 1000px;
     margin: 0 auto;
     padding: 0 1rem;
     font-size: 2rem;
@@ -163,7 +173,7 @@ a{
 
 .canvas-caption{
     max-width: 1000px;
-    margin: 0 auto;
+    margin: -8rem 0 auto;
     padding: 0 1rem;
     font-size: 1.2rem;
     color: #888;
@@ -200,9 +210,12 @@ a{
     left: 50%;
 
 }
-.blend-elem-canvas{
-    background-color: blue;
+
+.blend-elem-canvas.sticky{
+    position: fixed;
+    top: 0;
 }
+
 #scroll-section-3{
     display: flex;
     flex-direction: column;
@@ -220,6 +233,7 @@ a{
         font-size: 4vw;
     }
     .description{
+        padding: 0;
         font-size: 2rem;
     }
     .description strong{
@@ -242,9 +256,11 @@ a{
         width: 20%;
     }
     .mid-message{
+        padding: 0;
         font-size: 4rem;
     }
     .canvas-caption{
+        padding: 0;
         font-size: 2rem;
     }
 }
